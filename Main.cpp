@@ -17,7 +17,7 @@ typedef NTSTATUS(NTAPI* RtlCreateUserThreadDef) (
 	PHANDLE, PCLIENT_ID
 );
 
-DWORD CreateDllUserThread(DWORD dwProcId, const WCHAR szDllPath[]) {
+DWORD ProcessInjectDll(DWORD dwProcId, const WCHAR szDllPath[]) {
 	HMODULE hModuleNtDll = GetModuleHandleW(L"ntdll.dll");
 
 	BOOLEAN bEnabled;
@@ -94,7 +94,7 @@ DWORD CreateDllUserThread(DWORD dwProcId, const WCHAR szDllPath[]) {
 INT32 main() {
 	const DWORD dwProcId = 8740;
 	const WCHAR szDllPath[] = L"D:\\Visual Studio Projects\\DllTest\\x64\\Release\\DllTest.dll";
-	CreateDllUserThread(dwProcId, szDllPath);
+	ProcessInjectDll(dwProcId, szDllPath);
 	std::cin.get();
 
 	return 0;
