@@ -92,7 +92,7 @@ DWORD CreateDllUserThread(DWORD dwProcId, const WCHAR szDllPath[]) {
 }
 
 INT32 main() {
-  const DWORD dwProcId = 8740;
+	const DWORD dwProcId = 8740;
 	const WCHAR szDllPath[] = L"D:\\Visual Studio Projects\\DllTest\\x64\\Release\\DllTest.dll";
 	CreateDllUserThread(dwProcId, szDllPath);
 	std::cin.get();
