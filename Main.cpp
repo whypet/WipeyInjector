@@ -17,7 +17,7 @@ typedef NTSTATUS(NTAPI* RtlCreateUserThreadDef) (
 	PHANDLE, PCLIENT_ID
 );
 
-DWORD ProcessInjectDll(DWORD dwProcId, const WCHAR szDllPath[]) {
+INLINE DWORD ProcessInjectDll(DWORD dwProcId, const WCHAR szDllPath[]) {
 	HMODULE hModuleNtDll = GetModuleHandleW(L"ntdll.dll");
 
 	BOOLEAN bEnabled;
