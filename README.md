@@ -1,6 +1,6 @@
 # WipeyInjector
 
-Thanks to @NullExceptionTSB for helping me with this!\
+Thanks to [@NullExceptionTSB](https://github.com/NullExceptionTSB) for helping me with this!\
 This uses CreateRemoteThread() and the undocumented API function RtlCreateUserThread().\
 Tested on Command Prompt, Notepad and Java runtime using Windows 7 SP1
 
