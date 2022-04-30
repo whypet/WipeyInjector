@@ -38,9 +38,10 @@ DWORD ProcessInjectDll(DWORD dwProcId, const WCHAR szDllPath[]) {
 	HANDLE hProc = OpenProcess(PROCESS_ALL_ACCESS, FALSE, dwProcId);
 	BOOL bIsWow64;
 	IsWow64Process(hProc, &bIsWow64);
+
 	std::cout << "GetLastError() returned " << std::dec << GetLastError() <<
 		"; OpenProcess() returned handle 0x" << std::hex << hProc <<
-		"\nProcess ID " << std::dec << dwProcId << ", architecture " << (bIsWow64 == 0 ? "x86" : "x64") << "\n";
+		"\nProcess ID " << std::dec << dwProcId << ", " << (bIsWow64 ? "WOW64" : "not WOW64") << "\n";
 
 	SIZE_T dwPathLen = (wcslen(szDllPath) + 1) * sizeof(WCHAR);
 	PVOID pDllAlloc = VirtualAllocEx(hProc, nullptr, dwPathLen, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
