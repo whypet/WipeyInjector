@@ -3,7 +3,6 @@
 #include <winternl.h>
 
 #define PCVOID const void *
-#define INLINE inline
 
 typedef CLIENT_ID* PCLIENT_ID;
 
@@ -17,7 +16,7 @@ typedef NTSTATUS(NTAPI* RtlCreateUserThreadDef) (
 	PHANDLE, PCLIENT_ID
 );
 
-INLINE DWORD ProcessInjectDll(DWORD dwProcId, const WCHAR szDllPath[]) {
+DWORD ProcessInjectDll(DWORD dwProcId, const WCHAR szDllPath[]) {
 	HMODULE hModuleNtDll = GetModuleHandleW(L"ntdll.dll");
 
 	BOOLEAN bEnabled;
